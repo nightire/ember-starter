@@ -1,6 +1,7 @@
 module.exports = (grunt)->
 
   grunt.loadNpmTasks 'grunt-contrib-copy'
+  grunt.loadNpmTasks 'grunt-contrib-compass'
   grunt.loadNpmTasks 'grunt-contrib-watch'
   grunt.loadNpmTasks 'grunt-newer'
 
@@ -11,8 +12,14 @@ module.exports = (grunt)->
       assets:
         expand: true
         cwd: 'src'
-        src: ['**/*', '!**/*.{scss,sass,js,coffee,handlebars,hbs}']
+        src: ['**/*', '!**/*.{scss,sass,js,coffee,hbs}']
         dest: 'pub'
+        filter: 'isFile'
+
+    compass:
+      styles:
+        options:
+          config: 'config.rb'
 
     watch:
       options:
@@ -22,5 +29,8 @@ module.exports = (grunt)->
       assets:
         files: ['src/**/*', '!src/**/*.{scss,sass,js,coffee,handlebars,hbs}']
         tasks: ['newer:copy:assets']
+      styles:
+        files: ['src/sass/**/*.{sass,scss}']
+        tasks: ['compass:styles']
 
-  grunt.registerTask 'default', []
+  grunt.registerTask 'default', ['watch']
