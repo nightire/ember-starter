@@ -1,0 +1,26 @@
+{
+  "name": "dearann",
+  "version": "0.0.1",
+  "description": "Dear Ann's Website",
+  "authors": [
+    "nightire <nightire@vert-geek.com>"
+  ],
+  "moduleType": [
+    "globals"
+  ],
+  "license": "GPL v3",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~1.11.0",
+    "handlebars": "~1.3.0",
+    "ember": "~1.5.0",
+    "ember-data": "~1.0.0"
+  }
+}
