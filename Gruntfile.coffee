@@ -2,6 +2,7 @@ module.exports = (grunt)->
 
   grunt.loadNpmTasks 'grunt-contrib-copy'
   grunt.loadNpmTasks 'grunt-contrib-watch'
+  grunt.loadNpmTasks 'grunt-newer'
 
   grunt.config.init
     info: grunt.file.readJSON 'package.json'
@@ -20,6 +21,6 @@ module.exports = (grunt)->
         livereloadOnError: false
       assets:
         files: ['src/**/*', '!src/**/*.{scss,sass,js,coffee,handlebars,hbs}']
-        tasks: ['copy:assets']
+        tasks: ['newer:copy:assets']
 
   grunt.registerTask 'default', []
