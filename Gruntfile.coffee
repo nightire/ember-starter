@@ -1,6 +1,7 @@
 module.exports = (grunt)->
 
   grunt.loadNpmTasks 'grunt-contrib-copy'
+  grunt.loadNpmTasks 'grunt-bowercopy'
   grunt.loadNpmTasks 'grunt-contrib-compass'
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-ember-templates'
@@ -19,6 +20,16 @@ module.exports = (grunt)->
         src: ['**/*', '!**/*.{scss,sass,js,coffee,hbs}']
         dest: 'pub'
         filter: 'isFile'
+
+    bowercopy:
+      options:
+        destPrefix: 'pub/javascripts/vendor'
+      vendor:
+        files:
+          'jquery/jquery.js': 'jquery/dist/jquery.js'
+          'handlebars/handlebars.js': 'handlebars/handlebars.js'
+          'ember/ember.js': 'ember/ember.js'
+          'ember-data/ember-data.js': 'ember-data/ember-data.js'
 
     compass:
       compile:
@@ -56,6 +67,9 @@ module.exports = (grunt)->
       options:
         livereload: true
         livereloadOnError: false
+      vendor:
+        files: ['bower_components/**/*']
+        tasks: ['newer:bowercopy:vendor']
       assets:
         files: ['src/**/*', '!src/**/*.{scss,sass,js,coffee,handlebars,hbs}']
         tasks: ['newer:copy:assets']
@@ -75,7 +89,7 @@ module.exports = (grunt)->
     connect:
       server:
         options:
-          dictory: 'pub'
+          base: 'pub'
           port: 8154
           hostname: '127.0.0.1'
           open: true

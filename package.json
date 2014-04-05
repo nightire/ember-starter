@@ -19,6 +19,7 @@
     "chai": "latest",
     "ember-template-compiler": "latest",
     "grunt": "latest",
+    "grunt-bowercopy": "latest",
     "grunt-contrib-coffee": "latest",
     "grunt-contrib-compass": "latest",
     "grunt-contrib-connect": "^0.7.1",
