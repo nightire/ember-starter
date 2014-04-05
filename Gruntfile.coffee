@@ -7,6 +7,7 @@ module.exports = (grunt)->
   grunt.loadNpmTasks 'grunt-contrib-watch'
   grunt.loadNpmTasks 'grunt-karma'
   grunt.loadNpmTasks 'grunt-newer'
+  grunt.loadNpmTasks 'grunt-contrib-connect'
 
   grunt.config.init
     info: grunt.file.readJSON 'package.json'
@@ -71,4 +72,13 @@ module.exports = (grunt)->
         files: ['pub/javascripts/**/*.js', 'test/**/*{.spec,_spec,Spec}.js']
         tasks: ['karma:test:run']
 
-  grunt.registerTask 'default', ['karma:test:start', 'watch']
+    connect:
+      server:
+        options:
+          dictory: 'pub'
+          port: 8154
+          hostname: '127.0.0.1'
+          open: true
+          livereload: true
+
+  grunt.registerTask 'default', ['karma:test:start', 'connect', 'watch']

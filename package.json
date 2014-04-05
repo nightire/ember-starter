@@ -16,6 +16,7 @@
     "grunt": "latest",
     "grunt-contrib-coffee": "latest",
     "grunt-contrib-compass": "latest",
+    "grunt-contrib-connect": "^0.7.1",
     "grunt-contrib-copy": "latest",
     "grunt-contrib-watch": "latest",
     "grunt-ember-templates": "latest",
