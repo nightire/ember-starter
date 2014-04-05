@@ -19,6 +19,8 @@ Follow these steps to make it work:
 
 3. Run `npm install`
 
-4. Run `bower install`
+4. Run `grunt bowercopy`
+
+5. Run `grunt` and write your code (in `./src` folder by default)
 
 Done, and enjoy!
