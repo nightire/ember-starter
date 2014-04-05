@@ -12,10 +12,10 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'vendor/jquery/dist/jquery.js',
-      'vendor/handlebars/handlebars.js',
-      'vendor/ember/ember.js',
-      'vendor/ember-data/ember-data.js',
+      'pub/javascripts/vendor/jquery/jquery.js',
+      'pub/javascripts/vendor/handlebars/handlebars.js',
+      'pub/javascripts/vendor/ember/ember.js',
+      'pub/javascripts/vendor/ember-data/ember-data.js',
       'pub/javascripts/**/*.js',
       'test/**/*{.spec,_spec,Spec}.js'
       // , 'test/**/*{.test,_test,Test}.js'
