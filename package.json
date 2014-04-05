@@ -3,24 +3,33 @@
   "version": "0.0.1",
   "description": "Dear Ann's Website",
   "main": "server/server.js",
-  "scripts": {},
+  "scripts": {
+    "test": "./node_modules/karma/bin/karma start karma.conf.js"
+  },
   "author": "nightire <nightire@very-geek.com>",
   "license": "GPL v3",
   "dependencies": {},
   "devDependencies": {
     "bower": "latest",
     "chai": "latest",
-    "ember-template-compiler": "^1.6.0-beta.1",
+    "ember-template-compiler": "latest",
     "grunt": "latest",
     "grunt-contrib-coffee": "latest",
-    "grunt-contrib-compass": "^0.7.2",
-    "grunt-contrib-copy": "^0.5.0",
-    "grunt-contrib-watch": "^0.6.1",
-    "grunt-ember-templates": "^0.4.20",
+    "grunt-contrib-compass": "latest",
+    "grunt-contrib-copy": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-ember-templates": "latest",
     "grunt-karma": "latest",
-    "grunt-newer": "^0.7.0",
+    "grunt-newer": "latest",
     "handlebars": "^1.3.0",
     "karma": "latest",
-    "mocha": "latest"
+    "karma-chai": "latest",
+    "karma-chrome-launcher": "^0.1.3",
+    "karma-firefox-launcher": "^0.1.3",
+    "karma-mocha": "^0.1.3",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "karma-sinon": "latest",
+    "mocha": "latest",
+    "sinon": "latest"
   }
 }

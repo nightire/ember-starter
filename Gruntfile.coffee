@@ -4,6 +4,7 @@ module.exports = (grunt)->
   grunt.loadNpmTasks 'grunt-contrib-compass'
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-watch'
+  grunt.loadNpmTasks 'grunt-karma'
   grunt.loadNpmTasks 'grunt-newer'
 
   grunt.config.init
@@ -32,9 +33,17 @@ module.exports = (grunt)->
           bare: false
           sourceMap: true
 
+    karma:
+      options:
+        configFile: 'karma.conf.js'
+      test:
+        background: true
+        singleRun: false
+      continuous:
+        reporters: 'progress'
+
     watch:
       options:
-        spawn: false
         livereload: true
         livereloadOnError: false
       assets:
@@ -46,5 +55,8 @@ module.exports = (grunt)->
       script:
         files: ['src/coffee/**/*.coffee']
         tasks: ['coffee:compile']
+      test:
+        files: ['pub/javascripts/**/*.js', 'test/**/*{.spec,_spec,Spec}.js']
+        tasks: ['karma:test:run']
 
-  grunt.registerTask 'default', ['watch']
+  grunt.registerTask 'default', ['karma:test:start', 'watch']

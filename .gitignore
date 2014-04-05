@@ -1,7 +1,8 @@
 .DS_Store
 .idea
 *.log
-bower_components
-node_modules
-vendor
-pub
+.sass-cache/
+bower_components/
+node_modules/
+vendor/
+pub/
