@@ -3,6 +3,7 @@ module.exports = (grunt)->
   grunt.loadNpmTasks 'grunt-contrib-copy'
   grunt.loadNpmTasks 'grunt-contrib-compass'
   grunt.loadNpmTasks 'grunt-contrib-coffee'
+  grunt.loadNpmTasks 'grunt-ember-templates'
   grunt.loadNpmTasks 'grunt-contrib-watch'
   grunt.loadNpmTasks 'grunt-karma'
   grunt.loadNpmTasks 'grunt-newer'
@@ -33,6 +34,14 @@ module.exports = (grunt)->
           bare: false
           sourceMap: true
 
+    emberTemplates:
+      compile:
+        files:
+          'pub/javascripts/template.js': 'src/template/**/*.hbs'
+        options:
+          precompile: false
+          templateBasePath: 'src/template'
+
     karma:
       options:
         configFile: 'karma.conf.js'
@@ -55,6 +64,9 @@ module.exports = (grunt)->
       script:
         files: ['src/coffee/**/*.coffee']
         tasks: ['coffee:compile']
+      template:
+        files: ['src/template/**/*.hbs']
+        tasks: ['emberTemplates:compile']
       test:
         files: ['pub/javascripts/**/*.js', 'test/**/*{.spec,_spec,Spec}.js']
         tasks: ['karma:test:run']
