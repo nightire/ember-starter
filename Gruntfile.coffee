@@ -85,6 +85,8 @@ module.exports = (grunt)->
       test:
         files: ['pub/javascripts/**/*.js', 'test/**/*{.spec,_spec,Spec}.js']
         tasks: ['karma:test:run']
+        options:
+          livereload: false
 
     connect:
       server:
