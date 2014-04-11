@@ -83,7 +83,7 @@ module.exports = (grunt)->
         files: ['src/template/**/*.hbs']
         tasks: ['emberTemplates:compile']
       test:
-        files: ['pub/javascripts/**/*.js', 'test/**/*{.spec,_spec,Spec}.js']
+        files: ['pub/javascripts/**/*.js', 'test/**/*.{coffee,js}']
         tasks: ['karma:test:run']
         options:
           livereload: false
