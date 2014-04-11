@@ -17,8 +17,8 @@ module.exports = function(config) {
       'pub/javascripts/vendor/ember/ember.js',
       'pub/javascripts/vendor/ember-data/ember-data.js',
       'pub/javascripts/**/*.js',
-      'test/**/*{.spec,_spec,Spec}.js'
-      // , 'test/**/*{.test,_test,Test}.js'
+      'test/**/*{.spec,_spec,Spec}.{js,coffee}',
+      'test/**/*{.test,_test,Test}.{js,coffee}'
     ],
 
 
@@ -27,7 +27,19 @@ module.exports = function(config) {
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-    preprocessors: {},
+    preprocessors: {
+        '**/*.coffee': ['coffee']
+    },
+
+    coffeePreprocessor: {
+        options:{
+            bare: true,
+            sourceMap: false
+        },
+        transformPath: function (path) {
+            return path.replace(/\.coffee$/, '.js');
+        }
+    },
 
 
     // test results reporter to use
