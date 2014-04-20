@@ -92,8 +92,8 @@ module.exports = (grunt)->
       server:
         options:
           base: 'pub'
-          port: 8154
-          hostname: '127.0.0.1'
+          port: 1234
+          hostname: '0.0.0.0'
           open: true
           livereload: true
 
